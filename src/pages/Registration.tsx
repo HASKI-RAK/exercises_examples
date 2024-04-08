@@ -7,7 +7,7 @@ const baseValidation: BaseValidationFn = (value) => {
   return value.trim() !== '';
 };
 
-const emailLengthValidator = (validationFunction: BaseValidationFn) => {
+const lengthValidator = (validationFunction: BaseValidationFn) => {
   return (value: string) => {
     // Zuerst nutzen wir die ursprüngliche Validierungsfunktion
     const isValidBase = validationFunction(value);
@@ -16,7 +16,7 @@ const emailLengthValidator = (validationFunction: BaseValidationFn) => {
   };
 };
 
-const emailRegexValidator = (validationFunction: BaseValidationFn) => {
+const regexValidator = (validationFunction: BaseValidationFn) => {
   return (value: string) => {
     // Zuerst nutzen wir die ursprüngliche Validierungsfunktion
     const isValidBase = validationFunction(value);
@@ -29,7 +29,7 @@ const RegistrationForm = () => {
   const [email, setEmail] = useState('');
   const [isValid, setIsValid] = useState(false);
 
-  const validateEmail = emailLengthValidator(emailRegexValidator(baseValidation));
+  const validateEmail = lengthValidator(regexValidator(baseValidation));
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -51,6 +51,9 @@ const RegistrationForm = () => {
     >
       <h2>Registrierung</h2>
       <form>
+        <label htmlFor="username">Benutzername:</label>
+        <input type="text" />
+
         <label htmlFor="email">E-Mail:</label>
         <input
           type="email"

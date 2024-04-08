@@ -16,10 +16,11 @@ input {
   font-size: 16px;
   width: 100%; /* Adjust width as needed */
   box-sizing: border-box; /* Include padding and border in the element's width */
+  padding: 4px; /* Add some padding for better appearance */
 
   /* Colors and borders */
   background-color: #333333; /* Darker grey background */
-  border: 2px solid #333333; /* Border matches background */
+  border: 1px solid #888888; /* Border matches background */
   border-radius: 8px; /* Slightly rounded corners for a soft look */
 
   /* Spacing */
