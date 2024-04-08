@@ -1,7 +1,7 @@
 .App {
   padding: 20px;
   background-color: #121212; /* Dark background for the app */
-  color: #E0E0E0; /* Light grey text for readability */
+  color: #e0e0e0; /* Light grey text for readability */
 }
 
 body {
@@ -26,7 +26,7 @@ input {
   margin: 8px 0; /* Add some space around the input */
 
   /* Text */
-  color: #E0E0E0; /* Light grey color for text */
+  color: #e0e0e0; /* Light grey color for text */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, readable font */
 
   /* Transition for interaction */
@@ -36,7 +36,7 @@ input {
 }
 
 input:focus {
-  border-color: #E0E0E0; /* Light grey border on focus */
+  border-color: #e0e0e0; /* Light grey border on focus */
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.2); /* Soft glow for focus */
 }
 
@@ -58,7 +58,7 @@ button {
   color: #000000; /* Dark text for contrast */
   text-align: center;
   text-decoration: none;
-  background-color: #E0E0E0; /* Light grey for buttons */
+  background-color: #e0e0e0; /* Light grey for buttons */
   border: none;
   border-radius: 50px; /* Fully rounded edges */
   cursor: pointer;
@@ -72,13 +72,13 @@ button {
 }
 
 button:hover {
-  background-color: #BDBDBD; /* Lighter shade on hover */
+  background-color: #bdbdbd; /* Lighter shade on hover */
   color: #000000; /* Maintain dark text for contrast */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow for floating effect */
 }
 
 button:active {
-  background-color: #9E9E9E; /* Even lighter for click effect */
+  background-color: #9e9e9e; /* Even lighter for click effect */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reset shadow */
   transform: translateY(2px); /* Slight push-down effect */
 }
@@ -91,22 +91,31 @@ button[disabled] {
 }
 
 /* General Text Elements */
-body, p, span, a {
-  color: #E0E0E0; /* Light grey text color for good readability on dark backgrounds */
+body,
+p,
+span,
+a {
+  color: #e0e0e0; /* Light grey text color for good readability on dark backgrounds */
 }
 
 /* Heading Elements */
-h1, h2, h3, h4, h5, h6 {
-  color: #FFFFFF; /* Pure white for headings to stand out */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #ffffff; /* Pure white for headings to stand out */
 }
 
 /* Links */
 a {
-  color: #BB86FC; /* A lighter purple color for links to stand out */
+  color: #bb86fc; /* A lighter purple color for links to stand out */
   text-decoration: none; /* Optional: Removes underline from links */
 }
 
-a:hover, a:focus {
-  color: #FF79B0; /* A soft pink for hover/focus states to differentiate from the normal state */
+a:hover,
+a:focus {
+  color: #ff79b0; /* A soft pink for hover/focus states to differentiate from the normal state */
   text-decoration: underline; /* Optional: Underline on hover/focus for clarity */
 }
