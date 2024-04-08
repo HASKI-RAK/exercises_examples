@@ -1,75 +1,68 @@
-:root {
-  --primay: black;
-  --bg-primay: white;
-
-  --link: #2a0b0b;
-}
 
 .App {
+  padding: 20px;
+}
+
+input {
+  /* Basic appearance */
+  font-size: 16px;
+  width: 100%; /* Adjust width as needed */
+  box-sizing: border-box; /* Include padding and border in the element's width */
+
+  /* Colors and borders */
+  background-color: #f0f0f0; /* Light grey background */
+  border: 2px solid #f0f0f0; /* Border matches background */
+  border-radius: 8px; /* Slightly rounded corners for a soft look */
+
+  /* Spacing */
+  margin: 8px 0; /* Add some space around the input */
+
+  /* Text */
+  color: #333; /* Dark grey color for text */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, readable font */
+
+  /* Transition for interaction */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  border-color: #383838; /* Dark grey border on focus */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Soft blue glow for focus */
+}
+
+button {
+ /* Basic appearance */
+  display: inline-block;
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFFFFF;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-p {
-  margin: 20px 0px;
-}
-
-.header {
-  font-size: 3rem;
-}
-
-.body {
-  margin: 20px 0 10px;
-  font-size: 0.9rem;
-}
-
-button {
-  outline: none;
+  text-decoration: none;
+  background-color: #000000; /* Modern dark grey */
   border: none;
-  border-radius: 8px;
-  padding: 10px 35px;
+  border-radius: 50px; /* Fully rounded edges */
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.2s, transform 0.2s;
 
-  background: #845ec2;
-  color: white;
+  /* Modern flat design with subtle shadow for depth */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button:hover {
+  background-color: #383838; /* Slightly darker shade on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow for floating effect */
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-
-  background: var(--bg-primay);
-  color: var(--primay);
+button:active {
+  background-color: #616161; /* Even darker for click effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reset shadow */
+  transform: translateY(2px); /* Slight push-down effect */
 }
 
-.App-link {
-  color: #61dafb;
-  color: var(--link);
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-button {
-  font-size: calc(10px + 2vmin);
+button:disabled,
+button[disabled] {
+  background-color: #999999; /* Grey out disabled button */
+  cursor: not-allowed; /* Disable pointer events */
 }
