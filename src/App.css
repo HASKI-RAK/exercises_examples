@@ -1,6 +1,14 @@
-
 .App {
   padding: 20px;
+  background-color: #121212; /* Dark background for the app */
+  color: #E0E0E0; /* Light grey text for readability */
+}
+
+body {
+  height: 100vh; /* Full height of the viewport */
+  margin: 0; /* Remove default margin */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, readable font */
+  background-color: #121212; /* Dark background for the body */
 }
 
 input {
@@ -10,59 +18,95 @@ input {
   box-sizing: border-box; /* Include padding and border in the element's width */
 
   /* Colors and borders */
-  background-color: #f0f0f0; /* Light grey background */
-  border: 2px solid #f0f0f0; /* Border matches background */
+  background-color: #333333; /* Darker grey background */
+  border: 2px solid #333333; /* Border matches background */
   border-radius: 8px; /* Slightly rounded corners for a soft look */
 
   /* Spacing */
   margin: 8px 0; /* Add some space around the input */
 
   /* Text */
-  color: #333; /* Dark grey color for text */
+  color: #E0E0E0; /* Light grey color for text */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, readable font */
 
   /* Transition for interaction */
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
 }
 
 input:focus {
-  border-color: #383838; /* Dark grey border on focus */
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Soft blue glow for focus */
+  border-color: #E0E0E0; /* Light grey border on focus */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2); /* Soft glow for focus */
+}
+
+.Card {
+  display: 'flex';
+  flex-direction: column;
+  width: '200px';
+  background-color: '#333333'; /* Darker background color for cards */
+  padding: '16px';
+  border-radius: '12px';
 }
 
 button {
- /* Basic appearance */
+  /* Basic appearance */
   display: inline-block;
   padding: 10px 25px;
   font-size: 16px;
   font-weight: bold;
-  color: #FFFFFF;
+  color: #000000; /* Dark text for contrast */
   text-align: center;
   text-decoration: none;
-  background-color: #000000; /* Modern dark grey */
+  background-color: #E0E0E0; /* Light grey for buttons */
   border: none;
   border-radius: 50px; /* Fully rounded edges */
   cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.2s, transform 0.2s;
+  transition:
+    background-color 0.3s,
+    box-shadow 0.2s,
+    transform 0.2s;
 
   /* Modern flat design with subtle shadow for depth */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-  background-color: #383838; /* Slightly darker shade on hover */
+  background-color: #BDBDBD; /* Lighter shade on hover */
+  color: #000000; /* Maintain dark text for contrast */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow for floating effect */
-
 }
 
 button:active {
-  background-color: #616161; /* Even darker for click effect */
+  background-color: #9E9E9E; /* Even lighter for click effect */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reset shadow */
   transform: translateY(2px); /* Slight push-down effect */
 }
 
 button:disabled,
 button[disabled] {
-  background-color: #999999; /* Grey out disabled button */
+  background-color: #555555; /* Darker grey for disabled button */
+  color: #999999; /* Lighter text to indicate disabled */
   cursor: not-allowed; /* Disable pointer events */
+}
+
+/* General Text Elements */
+body, p, span, a {
+  color: #E0E0E0; /* Light grey text color for good readability on dark backgrounds */
+}
+
+/* Heading Elements */
+h1, h2, h3, h4, h5, h6 {
+  color: #FFFFFF; /* Pure white for headings to stand out */
+}
+
+/* Links */
+a {
+  color: #BB86FC; /* A lighter purple color for links to stand out */
+  text-decoration: none; /* Optional: Removes underline from links */
+}
+
+a:hover, a:focus {
+  color: #FF79B0; /* A soft pink for hover/focus states to differentiate from the normal state */
+  text-decoration: underline; /* Optional: Underline on hover/focus for clarity */
 }

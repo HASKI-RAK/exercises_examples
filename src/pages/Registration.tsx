@@ -8,7 +8,7 @@ const baseValidation: BaseValidationFn = (value) => {
 };
 
 const emailLengthValidator = (validationFunction: BaseValidationFn) => {
-  return function (value: string) {
+  return (value: string) => {
     // Zuerst nutzen wir die ursprüngliche Validierungsfunktion
     const isValidBase = validationFunction(value);
     const isValidLength = value.length <= 50;
@@ -17,7 +17,7 @@ const emailLengthValidator = (validationFunction: BaseValidationFn) => {
 };
 
 const emailRegexValidator = (validationFunction: BaseValidationFn) => {
-  return function (value: string) {
+  return (value: string) => {
     // Zuerst nutzen wir die ursprüngliche Validierungsfunktion
     const isValidBase = validationFunction(value);
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -42,28 +42,30 @@ const RegistrationForm = () => {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '8px',
         width: '200px',
-        backgroundColor: '#ECECEC',
+        backgroundColor: '#333333',
         padding: '16px',
         borderRadius: '12px',
+        border: '1px solid #535353',
       }}
     >
       <h2>Registrierung</h2>
-      <label htmlFor="email">E-Mail:</label>
-      <input
-        type="email"
-        value={email}
-        onChange={handleChange}
-        style={{ borderColor: isValid ? 'initial' : 'red' }}
-      />
-      {!isValid && (
-        <p style={{ color: 'red' }}>Bitte eine gültige E-Mail-Adresse eingeben.</p>
-      )}
+      <form>
+        <label htmlFor="email">E-Mail:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={handleChange}
+          style={{ borderColor: isValid ? 'initial' : 'red' }}
+        />
+        {!isValid && (
+          <p style={{ color: 'red' }}>Bitte eine gültige E-Mail-Adresse eingeben.</p>
+        )}
 
-      <button onClick={() => alert('Erfolgreich!')} disabled={!isValid}>
-        Registrieren
-      </button>
+        <button onClick={() => alert('Erfolgreich!')} disabled={!isValid}>
+          Registrieren
+        </button>
+      </form>
     </div>
   );
 };
