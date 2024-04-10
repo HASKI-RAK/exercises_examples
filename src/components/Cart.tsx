@@ -13,7 +13,7 @@ const Cart = ({
   const cartStore = useCartStore();
   return (
     <div>
-      <h1>Warenkorb</h1>
+      <h2>Warenkorb</h2>
       <ul>
         {cartStore.items.map((item) => (
           <li key={item.id}>{item.name}</li>
