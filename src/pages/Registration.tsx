@@ -41,34 +41,43 @@ const RegistrationForm = () => {
     <div
       style={{
         display: 'flex',
-        flexDirection: 'column',
-        width: '200px',
-        backgroundColor: '#333333',
-        padding: '16px',
-        borderRadius: '12px',
-        border: '1px solid #535353',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100%',
       }}
     >
-      <h2>Registrierung</h2>
-      <form>
-        <label htmlFor="username">Benutzername:</label>
-        <input type="text" />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '200px',
+          backgroundColor: '#333333',
+          padding: '16px',
+          borderRadius: '12px',
+          border: '1px solid #535353',
+        }}
+      >
+        <h2>Registrierung</h2>
+        <form>
+          <label htmlFor="username">Benutzername:</label>
+          <input type="text" />
 
-        <label htmlFor="email">E-Mail:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={handleChange}
-          style={{ borderColor: isValid ? 'initial' : 'red' }}
-        />
-        {!isValid && (
-          <p style={{ color: 'red' }}>Bitte eine gültige E-Mail-Adresse eingeben.</p>
-        )}
+          <label htmlFor="email">E-Mail:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={handleChange}
+            style={{ borderColor: isValid ? 'initial' : 'red' }}
+          />
+          {!isValid && (
+            <p style={{ color: 'red' }}>Bitte eine gültige E-Mail-Adresse eingeben.</p>
+          )}
 
-        <button onClick={() => alert('Erfolgreich!')} disabled={!isValid}>
-          Registrieren
-        </button>
-      </form>
+          <button onClick={() => alert('Erfolgreich!')} disabled={!isValid}>
+            Registrieren
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

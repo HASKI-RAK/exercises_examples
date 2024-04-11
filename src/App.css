@@ -1,4 +1,5 @@
 .App {
+  height: 100vh; /* Full height of the viewport */
   background-color: #121212; /* Dark background for the app */
   color: #e0e0e0; /* Light grey text for readability */
 }

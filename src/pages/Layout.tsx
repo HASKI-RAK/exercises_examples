@@ -1,7 +1,18 @@
 import { Link, Outlet } from 'react-router-dom';
 
 const Footer = () => {
-  return <footer>Footer</footer>;
+  return (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexGrow: 0,
+      }}
+    >
+      <footer></footer>
+    </div>
+  );
 };
 
 /**
@@ -28,6 +39,7 @@ const Navbar = () => {
         <Link to="/">Home</Link>
         <Link to="/products">Produkte</Link>
         <Link to="/cart">Warenkorb</Link>
+        <Link to="/registration">Registrieren</Link>
       </div>
     </div>
   );
@@ -35,16 +47,31 @@ const Navbar = () => {
 
 const Layout = () => {
   return (
-    <div>
+    <div
+      style={{
+        minHeight: '100vh',
+      }}
+    >
       <Navbar />
       <div
         style={{
+          flex: 1,
           padding: '1rem',
+          flexGrow: 1,
+          display: 'flex',
+          flexDirection: 'column',
         }}
       >
-        <Outlet />
+        <div
+          style={{
+            flexGrow: 1,
+            height: '100%',
+          }}
+        >
+          <Outlet />
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };
