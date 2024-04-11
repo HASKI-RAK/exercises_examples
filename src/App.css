@@ -126,7 +126,8 @@ table {
   border-collapse: collapse; /* Remove default spacing between cells */
 }
 
-th, td {
+th,
+td {
   padding: 8px; /* Add some padding for better appearance */
   border-bottom: 1px solid #888888; /* Add a border between rows */
   text-align: left; /* Align text to the left */
