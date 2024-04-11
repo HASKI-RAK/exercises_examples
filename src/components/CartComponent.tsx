@@ -1,7 +1,7 @@
 import { Item } from '../core/Item';
 import { useCartStore } from '../store/Store';
 
-const Cart = ({
+const CartComponent = ({
   onAddItem,
   onRemoveItem,
   onUndo,
@@ -42,4 +42,4 @@ const Cart = ({
   );
 };
 
-export default Cart;
+export default CartComponent;

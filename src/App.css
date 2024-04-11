@@ -120,3 +120,18 @@ a:focus {
   color: #ff79b0; /* A soft pink for hover/focus states to differentiate from the normal state */
   text-decoration: underline; /* Optional: Underline on hover/focus for clarity */
 }
+
+table {
+  width: 100%; /* Full width of the container */
+  border-collapse: collapse; /* Remove default spacing between cells */
+}
+
+th, td {
+  padding: 8px; /* Add some padding for better appearance */
+  border-bottom: 1px solid #888888; /* Add a border between rows */
+  text-align: left; /* Align text to the left */
+}
+
+tr:nth-child(even) {
+  background-color: #333333; /* Darker background for even rows */
+}
