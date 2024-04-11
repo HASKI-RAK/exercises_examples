@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 type BaseValidationFn = (value: string) => boolean;
 
+// !Decorator Pattern
 const baseValidation: BaseValidationFn = (value) => {
   // Eine Basisvalidierung, die überprüft, ob der Wert nicht leer ist
   return value.trim() !== '';
