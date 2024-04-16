@@ -8,12 +8,14 @@ export type CommandState = {
   history: Command[];
   push: (command: Command) => void;
   pop: () => Command | undefined;
+  clear: () => void;
 };
 
 export type CartState = {
   items: Item[];
   addItem: (item: Item) => void;
   removeItem: (item: Item) => void;
+  clear: () => void;
 };
 
 export const useCommandStoreZustand = create<CommandState>((set, get) => ({
@@ -25,6 +27,7 @@ export const useCommandStoreZustand = create<CommandState>((set, get) => ({
     set((state) => ({ history: state.history.slice(0, -1) }));
     return lastCommand;
   },
+  clear: () => set({ history: [] }),
 }));
 
 export const useCartStoreZustand = create<CartState>()(
@@ -35,6 +38,7 @@ export const useCartStoreZustand = create<CartState>()(
         addItem: (item) => set((state) => ({ items: [...state.items, item] })),
         removeItem: (item) =>
           set((state) => ({ items: state.items.filter((i) => i.id !== item.id) })),
+        clear: () => set({ items: [] }),
       }),
       { name: 'cart-store', getStorage: () => localStorage },
     ),

@@ -1,5 +1,6 @@
 import { useCreateCommand } from '../CommandPattern';
 import CartComponent from '../components/CartComponent';
+import Checkout from '../components/Checkout/Checkout';
 import { Item } from '../core/Item';
 import { useCartStore, useCommandStore } from '../store/Store';
 
@@ -46,9 +47,17 @@ const CartPage = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '16px',
+      }}
+    >
       <h1>Warenkorb Seite</h1>
       <CartComponent onAddItem={addItem} onUndo={undo} onRemoveItem={removeItem} />
+      <hr className="solid" />
+      <Checkout />
     </div>
   );
 };

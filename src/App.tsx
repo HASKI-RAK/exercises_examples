@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/cart',
-        element: <CartPage />, // !Facade Pattern implicit: CartPage is a facade for the Command Pattern and the Store
+        element: <CartPage />,
       },
     ],
   },
