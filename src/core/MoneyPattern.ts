@@ -18,11 +18,11 @@ export class Money implements MoneyType {
   }
 
   addition(toAdd: MoneyType) {
-    return new Money(this.currency, this.amount + toAdd.amount);
+    return new Money(this.currency, this.round(1).amount + toAdd.round(1).amount);
   }
 
   subtract(toSubtract: MoneyType) {
-    return new Money(this.currency, this.amount - toSubtract.amount);
+    return new Money(this.currency, this.round(100).amount - toSubtract.round(1).amount);
   }
 
   round(precision: number) {

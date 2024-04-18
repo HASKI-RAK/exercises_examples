@@ -25,7 +25,11 @@ const CartPage = () => {
       {cartStore.items.length > 0 && (
         <div>
           <h2>Gesamtsumme</h2>
-          {cartStore.items.reduce((acc, item) => acc + item.money.amount, 0)}{' '}
+          {
+            cartStore.items
+              .map((item) => item.money)
+              .reduce((acc, curr) => curr.addition(acc)).amount
+          }
         </div>
       )}
       <Checkout />

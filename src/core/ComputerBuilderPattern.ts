@@ -110,7 +110,7 @@ const makeGamingComputer = (builder: ComputerBuilder) => {
     rayTracing: true,
   });
 
-  builder.setMoney(new Money('EUR', 2000));
+  builder.setMoney(new Money('EUR', 2093.99));
 
   return builder.build();
 };
@@ -143,7 +143,7 @@ const makeOfficeComputer = (builder: ComputerBuilder) => {
     rayTracing: false,
   });
 
-  builder.setMoney(new Money('EUR', 500));
+  builder.setMoney(new Money('EUR', 500.2321));
 
   return builder.build();
 };
