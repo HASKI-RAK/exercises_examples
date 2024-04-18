@@ -22,7 +22,7 @@ export class Money implements MoneyType {
   }
 
   subtract(toSubtract: MoneyType) {
-    return new Money(this.currency, this.round(100).amount - toSubtract.round(1).amount);
+    return new Money(this.currency, this.round(1).amount - toSubtract.round(1).amount);
   }
 
   round(precision: number) {
