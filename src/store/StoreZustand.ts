@@ -1,13 +1,13 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
-import { Command } from '../CommandPattern';
+import { CommandWithUndo } from '../CommandPattern';
 import { Item } from '../core/Item';
 
 export type CommandState = {
-  history: Command[];
-  push: (command: Command) => void;
-  pop: () => Command | undefined;
+  history: CommandWithUndo[];
+  push: (command: CommandWithUndo) => void;
+  pop: () => CommandWithUndo | undefined;
   clear: () => void;
 };
 

@@ -1,9 +1,12 @@
 import { Item } from './core/Item';
 import { useCartStore, useCommandStore } from './store/Store';
 
-//! Command Pattern
-export type Command = {
+//! Command With Undo Pattern
+type Command = {
   execute: () => void;
+};
+
+export type CommandWithUndo = Command & {
   undo: () => void;
 };
 
@@ -18,7 +21,7 @@ export const useCreateCommand = <T>(
   item: T,
   onExecute: () => void,
   onUndo: () => void,
-): Command & { item: T } => {
+): CommandWithUndo & { item: T } => {
   return {
     item,
     execute: () => {
@@ -32,8 +35,6 @@ export const useCreateCommand = <T>(
 
 /**
  * Add an item to the cart
- * @param cartStore - The cart store
- * @param commandStore - The command store
  * @returns A function that adds an item to the cart
  */
 export const addItemCommand = () => {
@@ -61,8 +62,6 @@ export const addItemCommand = () => {
 
 /**
  * Remove an item from the cart
- * @param cartStore - The cart store
- * @param commandStore - The command store
  * @returns A function that removes an item from the cart
  */
 export const removeItemCommand = () => {
@@ -87,7 +86,6 @@ export const removeItemCommand = () => {
 
 /**
  * Undo the last command
- * @param commandStore - The command store
  * @returns A function that undoes the last command
  */
 export const undoCommand = () => {

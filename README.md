@@ -1,37 +1,43 @@
-# Vite + React + Typescript + Eslint + Prettier
+# Application Examples of Popular Software Patterns with React and TypeScript
 
-A starter for React with Typescript with the fast Vite and all static code testing with Eslint and formatting with Prettier.
+This project serves as a comprehensive showcase of popular software design patterns implemented in a modern web application using React, TypeScript, Vite, Eslint, and Prettier. It aims to provide real-world examples of design patterns in action, making it easier for students to understand and apply these patterns in their projects.
 
-![Vite + React + Typescript + Eslint + Prettier](/resources/screenshot.png)
+This work is part of Software Engineering Education. The project is open-source and contributions are welcome.
 
-I found out about Vite and I wanted to have a boilerplate for the technologies that I use. You can find more about these in the following links: [Vite](https://github.com/vitejs/vite), [React](https://reactjs.org/), [Typescript](https://www.typescriptlang.org/), [Eslint](https://eslint.org/), [Prettier](https://prettier.io/).
+![Application Examples of Popular Software Patterns with React and TypeScript](/resources/screenshot.png)
+
+## Design Patterns Implementation Progress
+
+- [x] Command Pattern with Undo
+- [x] Facade Pattern
+- [x] Builder Pattern
+- [x] Money Pattern
+- [x] Adapter Patter
+- [x] Decorator Pattern
+- [ ] Composite Pattern
+- [ ] Strategy Pattern
+- [ ] Template Method Pattern
 
 ## Installation
 
-Clone the repo and run `yarn install`
+To get started with this project, clone the repository and install the dependencies:
 
-or Run command
-
+```sh
+git clone https://github.com/HASKI-RAK/exercises_examples.git
+cd exercises_examples
+yarn install
 ```
-npx degit TheSwordBreaker/vite-reactts-eslint-prettier project-name
+
+Alternatively, you can use `degit` to directly scaffold your project without cloning the entire history:
+
+```sh
+npx degit HASKI-RAK/exercises_examples your-local-project-name
 ```
 
-## Start
+## Running the Project
 
-After the successfull installation of the packages: `yarn dev`
+After successfully installing the dependencies, you can start the development server by running:
 
-## Steps in Vscode
-
-#### (works with better with this template)
-
-1. Install Eslint and prettier extension for vs code.
-2. Make Sure Both are enabled
-3. Make sure all packages are Installed. (Mostly Eslint and prettier in node_modules)
-4. Enable formatOnSave of vs code
-5. Open a .tsx file and check if the bottom right corners of vs code have Eslint and Prettier with a double tick
-
-![Screenshot (253)_LI](https://user-images.githubusercontent.com/52120562/162486286-7383a737-d555-4f9b-a4dd-c4a81deb7b96.jpg)
-
-If Everything is Good Then It Should Work, but let me new if something else happens
-
-Made with ❤️ by theSwordBreaker(we Destory all types of sword ⚡)
+```sh
+yarn dev
+```
