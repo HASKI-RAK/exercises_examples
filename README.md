@@ -8,12 +8,12 @@ This work is part of Software Engineering Education. The project is open-source 
 
 ## Design Patterns Implementation Progress
 
-- [x] Command Pattern with Undo
-- [x] Facade Pattern
-- [x] Builder Pattern
-- [x] Money Pattern
-- [x] Adapter Patter
-- [x] Decorator Pattern
+- [x] [Command Pattern with Undo](/src/CommandPattern.ts)
+- [x] [Facade Pattern](/src/components//Checkout/Checkout.tsx)
+- [x] [Builder Pattern](/src/core/ComputerBuilderPattern.ts)
+- [x] [Money Pattern](/src/core/MoneyPattern.ts)
+- [x] [Adapter Patter](/src/store/Store.ts)
+- [x] [Decorator Pattern](/src/pages/Registration.tsx)
 - [ ] Composite Pattern
 - [ ] Strategy Pattern
 - [ ] Template Method Pattern

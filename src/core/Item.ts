@@ -1,4 +1,4 @@
-import { MoneyType } from './Money';
+import { MoneyType } from './MoneyPattern';
 
 export type Item = {
   id: number;

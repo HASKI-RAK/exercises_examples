@@ -10,7 +10,6 @@ const baseValidation: BaseValidationFn = (value) => {
 
 const lengthValidator = (validationFunction: BaseValidationFn) => {
   return (value: string) => {
-    // Zuerst nutzen wir die ursprüngliche Validierungsfunktion
     const isValidBase = validationFunction(value);
     const isValidLength = value.length <= 50;
     return isValidBase && isValidLength;
@@ -19,7 +18,6 @@ const lengthValidator = (validationFunction: BaseValidationFn) => {
 
 const regexValidator = (validationFunction: BaseValidationFn) => {
   return (value: string) => {
-    // Zuerst nutzen wir die ursprüngliche Validierungsfunktion
     const isValidBase = validationFunction(value);
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
     return isValidBase && isValidEmail;
@@ -30,6 +28,7 @@ const RegistrationForm = () => {
   const [email, setEmail] = useState('');
   const [isValid, setIsValid] = useState(false);
 
+  //! Decorator Pattern (We can add multiple decorators to the base validation function)
   const validateEmail = lengthValidator(regexValidator(baseValidation));
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

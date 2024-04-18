@@ -9,7 +9,7 @@ import {
   ItemComputerGaming,
   ItemComputerOffice,
 } from './Computer';
-import { Money, MoneyType } from './Money';
+import { Money, MoneyType } from './MoneyPattern';
 
 //! Builder Pattern
 type ComputerBuilder = {
