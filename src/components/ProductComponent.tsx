@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
 import { addItemCommand } from '../CommandPattern';
-import { createComputerBuilder, Director, ItemComputer } from '../core/Item';
+import { ItemComputer } from '../core/Computer';
+import { createComputerBuilder, Director } from '../core/ComputerBuilderPattern';
 
 const ProductComponent = () => {
   const director = Director;
