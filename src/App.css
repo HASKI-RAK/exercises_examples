@@ -138,10 +138,10 @@ tr:nth-child(even) {
 }
 
 hr {
-  width: 96%;     
+  width: 96%;
   border: 0;
-  clear:both;
-  border-radius: 50px;   
+  clear: both;
+  border-radius: 50px;
 }
 
 /* Dashed border */
@@ -149,7 +149,6 @@ hr.dashed {
   border-top: 3px dashed #888888; /* Dashed line with grey color */
 }
 
-hr.solid{
+hr.solid {
   border-top: 3px solid #888888; /* Solid line with grey color */
 }
-

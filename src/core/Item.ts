@@ -1,6 +1,45 @@
+export type Money = {
+  currency: string;
+  amount: number;
+  addition: (money: Money, toAdd: Money) => Money;
+  subtract: (money: Money, toSubtract: Money) => Money;
+  round: (money: Money, precision: number) => Money;
+};
+
+const addition = (money: Money, toAdd: Money) => {
+  return {
+    currency: money.currency,
+    amount: money.amount + toAdd.amount,
+    addition: money.addition,
+    subtract: money.subtract,
+    round: money.round,
+  };
+};
+
+const subtract = (money: Money, toSubtract: Money) => {
+  return {
+    currency: money.currency,
+    amount: money.amount - toSubtract.amount,
+    addition: money.addition,
+    subtract: money.subtract,
+    round: money.round,
+  };
+};
+
+const round = (money: Money, precision: number) => {
+  return {
+    currency: money.currency,
+    amount: Math.round(money.amount * Math.pow(10, precision)) / Math.pow(10, precision),
+    addition: money.addition,
+    subtract: money.subtract,
+    round: money.round,
+  };
+};
+
 export type Item = {
   id: number;
   name: string;
+  money: Money;
 };
 
 type ComputerProcessor = {
@@ -58,10 +97,13 @@ type ItemComputerOffice = ItemComputer & {
 
 // Builder Pattern
 type ComputerBuilder = {
+  setComputerName: (name: string) => void;
   setProcessor: (processor: ComputerProcessor) => void;
   setMemory: (memory: ComputerMemory) => void;
   setStorage: (storage: ComputerStorage) => void;
   setGraphics: (graphics: ComputerGraphics) => void;
+  setMoney: (money: Money) => void;
+  setId: (id: number) => void;
   build: () => ItemComputer;
 };
 
@@ -79,13 +121,19 @@ export type Director = {
   makeOfficeComputer: (builder: ComputerBuilder) => ItemComputer;
 };
 
-export const createComputerBuilder = (id: number): ComputerBuilder => {
+export const createComputerBuilder = (): ComputerBuilder => {
+  let computerName: string;
   let processor: ComputerProcessor;
   let memory: ComputerMemory;
   let storage: ComputerStorage;
   let graphics: ComputerGraphics;
+  let money: Money;
+  let id: number;
 
   return {
+    setComputerName: (name) => {
+      computerName = name;
+    },
     setProcessor: (newProcessor) => {
       processor = newProcessor;
     },
@@ -98,19 +146,28 @@ export const createComputerBuilder = (id: number): ComputerBuilder => {
     setGraphics: (newGraphics) => {
       graphics = newGraphics;
     },
+    setMoney: (newMoney) => {
+      money = newMoney;
+    },
+    setId: (_id) => {
+      id = _id;
+    },
     build: () => {
       return {
         id,
-        name: 'Computer',
+        name: computerName,
         processor,
         memory,
         storage,
         graphics,
+        money,
       };
     },
   };
 };
 const makeGamingComputer = (builder: ComputerBuilder) => {
+  builder.setComputerName('Gaming Computer');
+
   builder.setProcessor({
     brand: 'AMD',
     model: 'Ryzen 9 5950X',
@@ -136,10 +193,20 @@ const makeGamingComputer = (builder: ComputerBuilder) => {
     rayTracing: true,
   });
 
+  builder.setMoney({
+    currency: 'EUR',
+    amount: 3000,
+    addition,
+    subtract,
+    round,
+  });
+
   return builder.build();
 };
 
 const makeOfficeComputer = (builder: ComputerBuilder) => {
+  builder.setComputerName('Office Computer');
+
   builder.setProcessor({
     brand: 'Intel',
     model: 'Core i5-10400F',
@@ -163,6 +230,14 @@ const makeOfficeComputer = (builder: ComputerBuilder) => {
     boostClock: 1200,
     rgb: false,
     rayTracing: false,
+  });
+
+  builder.setMoney({
+    currency: 'EUR',
+    amount: 500,
+    addition,
+    subtract,
+    round,
   });
 
   return builder.build();

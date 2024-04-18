@@ -1,26 +1,31 @@
 import { useState } from 'react';
 
+import { addItemCommand } from '../CommandPattern';
 import { createComputerBuilder, Director, ItemComputer } from '../core/Item';
 
-const ProductComponent = ({ id }: { id: number }) => {
-  const [selectedItemComputer, setSelectedItemComputer] = useState<ItemComputer | null>(
-    null,
-  );
-
+const ProductComponent = () => {
   const director = Director;
+  const addItem = addItemCommand();
+  const [selectedItem, setSelectedItem] = useState<ItemComputer | undefined>();
+  const [selectedCheckBox, setSelectedCheckBox] = useState<string>('Gaming'); // Default value is 'Gaming
+
+  //! Actual application of the Builder Pattern
+  const buildComputer = (type: string) => {
+    const builder = createComputerBuilder();
+    builder.setComputerName('Computer');
+    builder.setId(Date.now());
+
+    // the checkbox decides the type of computer
+    if (type === 'Gaming') {
+      return director.makeGamingComputer(builder);
+    } else {
+      return director.makeOfficeComputer(builder);
+    }
+  };
 
   const onCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    switch (event.target.value) {
-      case 'Gaming':
-        setSelectedItemComputer(director.makeGamingComputer(createComputerBuilder(id)));
-        break;
-      case 'Office':
-        setSelectedItemComputer(director.makeOfficeComputer(createComputerBuilder(id)));
-        break;
-      default:
-        setSelectedItemComputer(null);
-        break;
-    }
+    setSelectedCheckBox(event.target.value);
+    setSelectedItem(buildComputer(event.target.value));
   };
 
   return (
@@ -28,7 +33,7 @@ const ProductComponent = ({ id }: { id: number }) => {
       <h1>Wähle deinen PC</h1>
       <Checkbox onChange={onCheckboxChange} />
       <div>
-        {selectedItemComputer && (
+        {selectedItem && (
           <div>
             <h2>Dein PC</h2>
             <table>
@@ -37,20 +42,29 @@ const ProductComponent = ({ id }: { id: number }) => {
                 <th>Arbeitsspeicher</th>
                 <th>Speicher</th>
                 <th>Grafikkarte</th>
+                <th>Preis</th>
               </tr>
               <tr>
                 <td>
-                  {selectedItemComputer.processor.brand}{' '}
-                  {selectedItemComputer.processor.model}
+                  {selectedItem.processor.brand} {selectedItem.processor.model}
                 </td>
-                <td>{selectedItemComputer.memory.size} GB</td>
-                <td>{selectedItemComputer.storage.size} GB</td>
+                <td>{selectedItem.memory.size} GB</td>
+                <td>{selectedItem.storage.size} GB</td>
                 <td>
-                  {selectedItemComputer.graphics.brand}{' '}
-                  {selectedItemComputer.graphics.model}
+                  {selectedItem.graphics.brand} {selectedItem.graphics.model}
+                </td>
+                <td>
+                  {selectedItem.money.amount} {selectedItem.money.currency}
                 </td>
               </tr>
             </table>
+            <button
+              onClick={() => {
+                addItem(buildComputer(selectedCheckBox));
+              }}
+            >
+              In den Warenkorb
+            </button>
           </div>
         )}
       </div>
