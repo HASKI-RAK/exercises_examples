@@ -9,7 +9,7 @@ import {
   ItemComputerGaming,
   ItemComputerOffice,
 } from './Computer';
-import { addition, Money, round, subtract } from './Money';
+import { Money, MoneyType } from './Money';
 
 //! Builder Pattern
 type ComputerBuilder = {
@@ -18,7 +18,7 @@ type ComputerBuilder = {
   setMemory: (memory: ComputerMemory) => void;
   setStorage: (storage: ComputerStorage) => void;
   setGraphics: (graphics: ComputerGraphics) => void;
-  setMoney: (money: Money) => void;
+  setMoney: (money: MoneyType) => void;
   setId: (id: number) => void;
   build: () => ItemComputer;
 };
@@ -43,7 +43,7 @@ export const createComputerBuilder = (): ComputerBuilder => {
   let memory: ComputerMemory;
   let storage: ComputerStorage;
   let graphics: ComputerGraphics;
-  let money: Money;
+  let money: MoneyType;
   let id: number;
 
   return {
@@ -110,13 +110,7 @@ const makeGamingComputer = (builder: ComputerBuilder) => {
     rayTracing: true,
   });
 
-  builder.setMoney({
-    currency: 'EUR',
-    amount: 3000,
-    addition,
-    subtract,
-    round,
-  });
+  builder.setMoney(new Money('EUR', 2000));
 
   return builder.build();
 };
@@ -149,13 +143,7 @@ const makeOfficeComputer = (builder: ComputerBuilder) => {
     rayTracing: false,
   });
 
-  builder.setMoney({
-    currency: 'EUR',
-    amount: 500,
-    addition,
-    subtract,
-    round,
-  });
+  builder.setMoney(new Money('EUR', 500));
 
   return builder.build();
 };

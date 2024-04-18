@@ -21,6 +21,7 @@ const CartPage = () => {
       <h1>Warenkorb Seite</h1>
       <CartComponent onUndo={undo} onRemoveItem={removeItem} />
       <hr className="solid" />
+      {/** Calculate total amount */}
       {cartStore.items.length > 0 && (
         <div>
           <h2>Gesamtsumme</h2>

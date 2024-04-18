@@ -1,36 +1,31 @@
 //! Money Pattern
-export type Money = {
+export type MoneyType = {
   currency: string;
   amount: number;
-  addition: (money: Money, toAdd: Money) => Money;
-  subtract: (money: Money, toSubtract: Money) => Money;
-  round: (money: Money, precision: number) => Money;
+  conversionRate?: number;
+  addition: (toAdd: MoneyType) => MoneyType;
+  subtract: (toSubtract: MoneyType) => MoneyType;
+  round: (precision: number) => MoneyType;
 };
 
-export const addition = (money: Money, toAdd: Money) => {
-  return {
-    currency: money.currency,
-    amount: money.amount + toAdd.amount,
-    addition: money.addition,
-    subtract: money.subtract,
-    round: money.round,
-  };
-};
-export const subtract = (money: Money, toSubtract: Money) => {
-  return {
-    currency: money.currency,
-    amount: money.amount - toSubtract.amount,
-    addition: money.addition,
-    subtract: money.subtract,
-    round: money.round,
-  };
-};
-export const round = (money: Money, precision: number) => {
-  return {
-    currency: money.currency,
-    amount: Math.round(money.amount * Math.pow(10, precision)) / Math.pow(10, precision),
-    addition: money.addition,
-    subtract: money.subtract,
-    round: money.round,
-  };
-};
+export class Money implements MoneyType {
+  currency: string;
+  amount: number;
+
+  constructor(currency: string, amount: number) {
+    this.currency = currency;
+    this.amount = amount;
+  }
+
+  addition(toAdd: MoneyType) {
+    return new Money(this.currency, this.amount + toAdd.amount);
+  }
+
+  subtract(toSubtract: MoneyType) {
+    return new Money(this.currency, this.amount - toSubtract.amount);
+  }
+
+  round(precision: number) {
+    return new Money(this.currency, Math.round(this.amount * precision) / precision);
+  }
+}
