@@ -14,8 +14,8 @@ This work is part of Software Engineering Education. The project is open-source 
 - [x] [Money Pattern](/src/core/MoneyPattern.ts)
 - [x] [Adapter Patter](/src/store/Store.ts)
 - [x] [Decorator Pattern](/src/pages/Registration.tsx)
+- [x] [Strategy Pattern](/src/pages/CheckoutPage.tsx)
 - [ ] Composite Pattern
-- [ ] Strategy Pattern
 - [ ] Template Method Pattern
 
 ## Installation
